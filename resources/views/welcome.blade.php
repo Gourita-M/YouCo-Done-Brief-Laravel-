@@ -1,3 +1,7 @@
+<?php 
+
+    session()->invalidate();
+    session()->regenerateToken();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,14 +21,14 @@
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
       <h1 class="text-2xl font-bold text-orange-500">TableBooky</h1>
       <nav class="hidden md:flex gap-8 text-sm font-medium">
-        <a href="#" class="hover:text-orange-500">Home</a>
+        <a href="#" class="hover:text-orange-500">Dashboard</a>
         <a href="#" class="hover:text-orange-500">Restaurants</a>
         <a href="#" class="hover:text-orange-500">For Owners</a>
         <a href="#" class="hover:text-orange-500">Contact</a>
       </nav>
       <div class="flex gap-3">
-        <button class="text-sm font-medium">Sign in</button>
-        <button class="bg-orange-500 text-white px-4 py-2 rounded-lg text-sm hover:bg-orange-600">Register</button>
+        <a href="./login" class="text-sm font-medium">Sign in</a>
+        <a href="./register" class="bg-orange-500 text-white px-4 py-2 rounded-lg text-sm hover:bg-orange-600">Register</a>
       </div>
     </div>
   </header>
