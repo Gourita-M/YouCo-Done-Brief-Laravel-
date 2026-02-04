@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\RestaurantController;
+use App\Http\Controllers\MenuController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -17,3 +18,13 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('/addRestaurant', [RestaurantController::class, 'index']);
+
+Route::Post('/addRestaurant/store', [RestaurantController::class, 'addRestaurant'])->name('add.restaurant');
+
+Route::get('/delete/{id}', [RestaurantController::class, 'deleteRestaurant']);
+
+Route::get('/editRestaurant', [RestaurantController::class, 'editRestaurant']);
+
+Route::get('/addMenu', [MenuController::class, 'addMenu']);

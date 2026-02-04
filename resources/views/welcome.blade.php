@@ -1,7 +1,3 @@
-<?php 
-
-    session()->invalidate();
-    session()->regenerateToken();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

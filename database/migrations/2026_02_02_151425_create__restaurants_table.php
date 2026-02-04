@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('cuisine_type');
             $table->string('adress');
             $table->integer('capacity');
-            $table->integer('openhours');
-            $table->integer('closehours');
+            $table->time('openhours');
+            $table->time('closehours');
             $table->foreignId('users_id')
                     ->constrained()
                     ->cascadeOnDelete();
