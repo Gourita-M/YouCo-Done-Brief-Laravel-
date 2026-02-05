@@ -16,4 +16,9 @@ class Images extends Model
         'restuarant_image',
         'restaurants_id',
     ];
+
+    public function restaurants()
+    {
+        return $this->belongsTo(Restaurants::class);
+    }
 }

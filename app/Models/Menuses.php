@@ -17,4 +17,13 @@ class Menuses extends Model
         'restaurant_id',
     ];
 
+    public function menuplats()
+    {
+        return $this->hasMany(Menuplats::class);
+    }
+
+    public function restaurants()
+    {
+        return $this->belongsTo(Restaurants::class);
+    }
 }

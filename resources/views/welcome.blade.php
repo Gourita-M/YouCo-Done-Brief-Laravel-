@@ -18,7 +18,7 @@
       <h1 class="text-2xl font-bold text-orange-500">TableBooky</h1>
       <nav class="hidden md:flex gap-8 text-sm font-medium">
         <a href="#" class="hover:text-orange-500">Dashboard</a>
-        <a href="#" class="hover:text-orange-500">Restaurants</a>
+        <a href="/Restaurants" class="hover:text-orange-500">Restaurants</a>
         <a href="#" class="hover:text-orange-500">For Owners</a>
         <a href="#" class="hover:text-orange-500">Contact</a>
       </nav>

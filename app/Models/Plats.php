@@ -16,4 +16,9 @@ class Plats extends Model
         'content',
         'Prize',
     ];
+
+    public function menuplats()
+    {
+        return $this->hasMany(Menuplats::class);
+    }
 }

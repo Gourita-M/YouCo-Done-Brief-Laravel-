@@ -7,6 +7,8 @@ use App\Models\Restaurants;
 use App\Models\Images;
 use App\Models\Menuses;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
 
 class RestaurantController extends Controller
 {
@@ -40,8 +42,7 @@ class RestaurantController extends Controller
             'users_id' => Auth::user()->id ,
         ]);
         
-        $lastinsterted = $inserted->id;
-
+        
         if ($request->hasFile('restuarant_image')) {
 
         $image = $request->file('restuarant_image');
@@ -52,12 +53,12 @@ class RestaurantController extends Controller
 
         Images::create([
             'restuarant_image' => $imageName,
-            'restaurants_id' => $lastinsterted,
+            'restaurants_id' => $inserted->id
         ]);
-
+     
         Menuses::create([
             'title' => $data['menutitle'],
-            'restaurant_id' => $lastinsterted,
+            'restaurants_id' => $inserted->id
         ]);
         }
 
@@ -76,7 +77,8 @@ class RestaurantController extends Controller
     {
         Images::Where('restaurants_id', $id);
         Restaurants::where('id', $id)->delete();
-
+        Menuses::where('restaurants_id', $id)->delete();
+        
         return Redirect('/dashboard');
     }
 
@@ -85,4 +87,29 @@ class RestaurantController extends Controller
         return View('Restaurant.editRestaurant');
     }
 
+    public function listRestaurants()
+    {
+        $resturants = new Restaurants();
+        $data = $resturants->with('images')->get();
+        return View('Restaurant.ListRestaurants', compact('data'));
+    }
+
+    public function restaurantDetails($id)
+    {
+        $resturants = new Restaurants();
+        $data = $resturants->where('id', $id)->with('images','menuses')->first();
+
+        $menu = new Menuses();
+        $menuss = DB::table('menuses as m')
+                                ->join('menuplats as mp', 'mp.menus_id', '=', 'm.id')
+                                ->join('plats as p', 'p.id', '=', 'mp.plats_id')
+                                ->where('m.restaurants_id', 1)
+                                ->select('m.*', 'p.*')
+                                ->get();
+
+        
+        return View('Restaurant.details', compact('data', 'menuss'));
+    }
+
 }
+

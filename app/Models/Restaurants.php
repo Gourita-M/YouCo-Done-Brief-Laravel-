@@ -27,4 +27,14 @@ class Restaurants extends Model
     {
         return $this->hasMany(Images::class);
     }
+
+    public function favorites()
+    {
+        return $this->hasMany(Favorites::class);
+    }
+
+    public function Menuses()
+    {
+        return $this->hasMany(Menuses::class);
+    }
 }

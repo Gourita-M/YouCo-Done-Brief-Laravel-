@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('menuses', function (Blueprint $table) {
             $table->id();
             $table->text('title');
-            $table->foreignId('restaurant_id')
+            $table->foreignId('restaurants_id')
             ->constrained()->cascadeOnDelete();
         });
     }
