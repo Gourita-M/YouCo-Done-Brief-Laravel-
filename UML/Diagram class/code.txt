@@ -30,19 +30,26 @@ class images {
 }
 
 class menu {
-  id : int
-  description : Text
-  Prix : float
+  -id : int
+}
+
+class menuplats {
+  -id : int
+}
+class plat {
+  -id : int
+  -content : string
+  -prix_uni : int
 }
 
 class favorites {
-  id : int
-  favorites_date : date
+  -id : int
+  -favorites_date : date
 }
 
 class Role {
-  id : int
-  Role : varchar(50)
+  -id : int
+  -Role : varchar(50)
 }
 
 
@@ -55,9 +62,11 @@ User <|-- Administrator
 ' Relationships
 RestaurantOwner "1" -- "1..*" Restaurant
 images "1..*" -- "1" Restaurant
-menu "1" -- "1" Restaurant
+menu "0..*" -- "1" Restaurant
 favorites "0..*" -- "1" Restaurant
 favorites "0..*" -- "1" Customer
 User "1" -- "1..2" Role
+menu "1" -- "0..*" menuplats
+plat "1" -- "0..*" menuplats
 
 @enduml

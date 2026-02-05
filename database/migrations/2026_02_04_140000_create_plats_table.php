@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('menuplats', function (Blueprint $table) {
+        Schema::create('plats', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('menus_id')
-            ->constrained()->cascadeOnDelete();
-            $table->foreignId('plats_id')
-            ->constrained()->cascadeOnDelete();
+            $table->text('content');
+            $table->float('prize');
         });
     }
 
@@ -25,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('menuplats');
+        Schema::dropIfExists('plats');
     }
 };

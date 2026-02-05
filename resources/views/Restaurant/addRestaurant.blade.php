@@ -93,6 +93,12 @@
       class="w-full border rounded-lg px-4 py-3 focus:ring-2 focus:ring-orange-500 focus:outline-none">
   </div>
 
+  <div>
+    <label class="block text-sm font-medium mb-2">Menu Name</label>
+    <input name="menutitle" type="test" required
+      class="w-full border rounded-lg px-4 py-3 focus:ring-2 focus:ring-orange-500 focus:outline-none">
+  </div>
+
   <button type="submit"
     class="w-full bg-orange-500 text-white py-3 rounded-xl font-semibold hover:bg-orange-600">
     Publish Restaurant

@@ -33,7 +33,7 @@ use App\Http\Controllers\RestaurantController;
         
         <div class="flex justify-between items-center mt-5">
           <a href="editRestaurant" class="text-orange-500 font-medium text-sm">Edit</a>
-          <a href="addMenu" class="text-red-500 text-sm font-medium">Add a Menu</a>
+          <a href="addMenu" class="text-red-500 text-sm font-medium">Add Menu Items</a>
           <a href="delete/{{$dada['id']}}" class="text-red-500 text-sm font-medium" onclick="return confirm('Are you sure You Want To Delete This Restaurant ?')">Delete</a>
         </div>
       </div>

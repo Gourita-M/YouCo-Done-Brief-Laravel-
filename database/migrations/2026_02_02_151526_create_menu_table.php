@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('menu', function (Blueprint $table) {
+        Schema::create('menuses', function (Blueprint $table) {
             $table->id();
-            $table->text('description');
-            $table->float('Prix');
+            $table->text('title');
             $table->foreignId('restaurant_id')
             ->constrained()->cascadeOnDelete();
         });

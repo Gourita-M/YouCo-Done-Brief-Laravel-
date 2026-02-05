@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Restaurants;
 use App\Models\Images;
+use App\Models\Menuses;
 use Illuminate\Support\Facades\Auth;
 
 class RestaurantController extends Controller
@@ -25,7 +26,7 @@ class RestaurantController extends Controller
             'capacity' => 'required',
             'openhours' => 'required',
             'closehours' => 'required',
-
+            'menutitle' => 'required',
         ]);
         
         $inserted = Restaurants::create([
@@ -54,6 +55,10 @@ class RestaurantController extends Controller
             'restaurants_id' => $lastinsterted,
         ]);
 
+        Menuses::create([
+            'title' => $data['menutitle'],
+            'restaurant_id' => $lastinsterted,
+        ]);
         }
 
         return redirect('/dashboard');
