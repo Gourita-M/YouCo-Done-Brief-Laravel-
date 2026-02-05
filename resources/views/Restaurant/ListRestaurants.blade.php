@@ -64,7 +64,6 @@
         <p class="text-sm text-gray-500">{{$dada['adress']}}</p>
 
         <div class="flex justify-between items-center mt-4">
-          <span class="text-orange-500 font-semibold">⭐ 4.7</span>
           <a href="./details/{{$dada['id']}}" class="bg-orange-500 text-white px-4 py-2 rounded-lg text-sm">
             View Details
           </a>

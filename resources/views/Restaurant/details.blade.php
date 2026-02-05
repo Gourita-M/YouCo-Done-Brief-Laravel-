@@ -13,7 +13,6 @@
 
 <body class="bg-gray-50 text-gray-800">
 
-<!-- Navbar -->
 <header class="bg-white shadow-sm">
   <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between">
     <h1 class="text-2xl font-bold text-orange-500">TableBooky</h1>
@@ -33,7 +32,17 @@
 
     <div class="p-6">
 
-      <h2 class="text-3xl font-bold mb-2">{{$data['name']}}</h2>
+        <div class="flex gap-80">
+            <h2 class="text-3xl font-bold mb-2">{{$data['name']}}</h2>
+            <form action="{{ route('favourite.add') }}" method="POST">
+            @csrf
+                <input name="restaurentid" type="hidden" value="{{$data['id']}}">
+                <button class="flex items-center gap-2 px-4 py-2 bg-red-500 text-white rounded-xl hover:bg-red-600">
+                    ❤️ Add to Favourite
+                </button>
+            </form>
+
+        </div>
 
       <p class="text-gray-500 mb-4">
         {{$data['cuisine_type']}} Cuisine • {{$data['city']}} • 

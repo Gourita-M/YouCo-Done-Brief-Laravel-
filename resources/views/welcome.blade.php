@@ -19,7 +19,7 @@
       <nav class="hidden md:flex gap-8 text-sm font-medium">
         <a href="#" class="hover:text-orange-500">Dashboard</a>
         <a href="/Restaurants" class="hover:text-orange-500">Restaurants</a>
-        <a href="#" class="hover:text-orange-500">For Owners</a>
+        <a href="/Favorites" class="hover:text-orange-500">My Favorites</a>
         <a href="#" class="hover:text-orange-500">Contact</a>
       </nav>
       <div class="flex gap-3">

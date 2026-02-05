@@ -103,7 +103,7 @@ class RestaurantController extends Controller
         $menuss = DB::table('menuses as m')
                                 ->join('menuplats as mp', 'mp.menus_id', '=', 'm.id')
                                 ->join('plats as p', 'p.id', '=', 'mp.plats_id')
-                                ->where('m.restaurants_id', 1)
+                                ->where('m.restaurants_id', $id)
                                 ->select('m.*', 'p.*')
                                 ->get();
 

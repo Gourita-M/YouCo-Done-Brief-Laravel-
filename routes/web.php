@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PlatsController;
+use App\Http\Controllers\FavoritesController;
 
 
 Route::get('/', function () {
@@ -35,3 +36,7 @@ Route::post('/addPlats', [PlatsController::class, 'addPlat'])->name('adding.plat
 Route::get('/Restaurants', [RestaurantController::class, 'listRestaurants']);
 
 Route::get('/details/{id}', [RestaurantController::class, 'restaurantDetails']);
+
+Route::post('/AddToFavourite', [FavoritesController::class, 'addToFavourite'])->name('favourite.add');
+
+Route::get('/Favorites', [FavoritesController::class, 'index']);

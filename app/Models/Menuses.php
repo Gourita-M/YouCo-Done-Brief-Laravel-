@@ -14,7 +14,7 @@ class Menuses extends Model
 
     protected $fillable = [
         'title',
-        'restaurant_id',
+        'restaurants_id',
     ];
 
     public function menuplats()
