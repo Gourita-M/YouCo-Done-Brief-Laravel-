@@ -62,7 +62,7 @@ class RestaurantController extends Controller
         ]);
         }
 
-        return redirect('/dashboard');
+        return redirect('/owner/dashboard');
         
     }
 

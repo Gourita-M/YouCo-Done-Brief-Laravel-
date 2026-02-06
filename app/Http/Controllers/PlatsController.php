@@ -18,6 +18,6 @@ class PlatsController extends Controller
                 'plats_id' => $pla,
             ]);
         }
-        return redirect('/dashboard');
+        return redirect('/owner/dashboard');
     }
 }

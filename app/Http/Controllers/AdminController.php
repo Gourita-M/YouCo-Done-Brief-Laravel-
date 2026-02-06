@@ -4,14 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Restaurants;
 
 class AdminController extends Controller
 {
     public function index()
     {
-        
-        $Data = DB::table('restaurants as r')->get();
-        return View('admindashboard', Compact('Data'));
+        return DB::table('restaurants as r')->get();
     }
 
     

@@ -45,6 +45,10 @@ class CreateNewUser implements CreatesNewUsers
             'users_id' => $user->id,
         ]);
 
+        if($input['role'] === 'Owner'){
+            $user->assignRole('owner');
+        }
+
         return $user;
         });
 

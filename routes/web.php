@@ -28,7 +28,7 @@ Route::Post('/addRestaurant/store', [RestaurantController::class, 'addRestaurant
 
 Route::get('/delete/{id}', [RestaurantController::class, 'deleteRestaurant']);
 
-Route::get('/editRestaurant', [RestaurantController::class, 'editRestaurant']);
+Route::get('/editRestaurant/{id}', [RestaurantController::class, 'editRestaurant']);
 
 Route::get('/addMenu/{id}', [MenuController::class, 'addMenu']);
 
