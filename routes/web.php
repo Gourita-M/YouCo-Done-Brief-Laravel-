@@ -42,7 +42,11 @@ Route::post('/AddToFavourite', [FavoritesController::class, 'addToFavourite'])->
 
 Route::get('/Favorites', [FavoritesController::class, 'index']);
 
-Route::get('/admindashboard',[AdminController::class, 'index'])->name('admin');
+Route::get('/admin/dashboard', function () {
+    return view('admindashboard');
+})->middleware(['auth','role:admin']);
 
-Route::get('/restaurants/search', [RestaurantController::class, 'search'])
-     ->name('restaurants.search');
+Route::get('/owner/dashboard', function () {
+    return view('ownerdashboard');
+})->middleware(['auth','role:owner']);
+

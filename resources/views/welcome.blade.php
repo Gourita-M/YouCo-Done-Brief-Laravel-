@@ -24,8 +24,10 @@
                     </a>
 
       <nav class="hidden md:flex gap-8 text-sm font-medium">
-        <a href="/dashboard" class="hover:text-orange-500">Dashboard</a>
-        <a href="/Restaurants" class="hover:text-orange-500">Restaurants</a>
+    @role('admin')
+      <a href="/dashboard" class="hover:text-orange-500">Dashboard</a>
+    @endrole
+      <a href="/Restaurants" class="hover:text-orange-500">Restaurants</a>
         <a href="/Favorites" class="hover:text-orange-500">My Favorites</a>
         <a href="#" class="hover:text-orange-500">Contact</a>
       </nav>
@@ -50,8 +52,12 @@
                 Log Out
               </button>
             </form>
-
-
+          @role('admin')
+            <a class="block w-full px-4 py-2 text-start text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out" href="./admin/dashboard">Dashboard</a>
+          @endrole
+          @role('owner')
+            <a class="block w-full px-4 py-2 text-start text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out" href="http://127.0.0.1:8000/user/profile">Dashboard</a>
+          @endrole
           </div>
         </div>
         @else

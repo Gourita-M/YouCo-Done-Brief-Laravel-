@@ -1,4 +1,11 @@
-{{$Data}}
+<?php
+  use App\Http\Controllers\AdminController;
+
+  $admin = new AdminController;
+
+  $data = $admin->index();
+  
+?>
 <!DOCTYPE html>
 <html lang="en" >
 <head>
@@ -42,16 +49,16 @@
         </tr>
       </thead>
       <tbody>
-        @foreach($Data as $dada)
+       
         <tr class="hover:bg-gray-50 border-b border-gray-200">
-          <td class="py-3 px-4">{{$dada->name}}</td>
-          <td class="py-3 px-4">{{$dada->city}}</td>
+          <td class="py-3 px-4"></td>
+          <td class="py-3 px-4"></td>
           <td class="py-3 px-4 text-green-600 font-semibold">Active</td>
           <td class="py-3 px-4">
-            <a href="delete/{{$dada->id}}" class="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700" onclick="return confirm('Are you sure You Want To Delete This Restaurant ?')">Delete</a>
+            <a href="delete/" class="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700" onclick="return confirm('Are you sure You Want To Delete This Restaurant ?')">Delete</a>
           </td>
         </tr>
-        @endforeach
+      
       </tbody>
     </table>
   </section>

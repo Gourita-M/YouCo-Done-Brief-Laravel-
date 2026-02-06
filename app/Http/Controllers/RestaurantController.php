@@ -111,27 +111,5 @@ class RestaurantController extends Controller
         return View('Restaurant.details', compact('data', 'menuss'));
     }
 
-    public function search(Request $request)
-    {
-        $query = Restaurants::query();
-
-        if ($request->filled('city')) {
-            $query->where('city', 'like', '%' . $request->city . '%');
-        }
-
-        if ($request->filled('cuisine_type')) {
-            $query->where('cuisine_type', $request->cuisine_type);
-        }
-
-        if ($request->filled('time')) {
-            $query->where('openhours', '<=', $request->time)
-                  ->where('closehours', '>=', $request->time);
-        }
-
-        $restaurants = $query->get();
-
-        return view('restaurants.search_results', compact('restaurants'));
-    }
-
 }
 
