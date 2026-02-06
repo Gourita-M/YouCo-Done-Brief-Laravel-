@@ -69,9 +69,21 @@
     </p>
   </div>
 </section>
+<form action="{{ route('restaurants.search') }}" method="GET">
+    <input type="text" name="city" placeholder="City">
 
+    <select name="cuisine_type">
+        <option value="">Cuisine Type</option>
+        <option value="Moroccan">Moroccan</option>
+        <option value="Italian">Italian</option>
+        <option value="Asian">Asian</option>
+    </select>
 
-<!-- Restaurants Grid -->
+    <input type="time" name="time">
+
+    <button type="submit">Search</button>
+</form>
+
 <section class="max-w-7xl mx-auto px-6 py-16">
 
   <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">

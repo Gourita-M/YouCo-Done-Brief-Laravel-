@@ -43,3 +43,6 @@ Route::post('/AddToFavourite', [FavoritesController::class, 'addToFavourite'])->
 Route::get('/Favorites', [FavoritesController::class, 'index']);
 
 Route::get('/admindashboard',[AdminController::class, 'index'])->name('admin');
+
+Route::get('/restaurants/search', [RestaurantController::class, 'search'])
+     ->name('restaurants.search');
