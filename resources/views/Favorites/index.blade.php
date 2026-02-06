@@ -1,4 +1,3 @@
-{{$data}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +27,7 @@
       </div>
     </div>
   </header>
-
+  <div class="mt-10"></div>
   <!-- Favorites Section -->
   <section class="max-w-7xl mx-auto px-6 py-16">
     <div class="flex justify-between items-center mb-10">
@@ -37,24 +36,27 @@
     </div>
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-
+@if($data)
     @foreach($data as $da)
       <div class="bg-white rounded-2xl shadow hover:shadow-lg transition overflow-hidden">
         <div class="p-5">
-          <h4 class="font-semibold text-lg">Villa Napoli</h4>
-          <p class="text-sm text-gray-500">Italian • Downtown</p>
+          <h4 class="font-semibold text-lg">{{$da->name}}</h4>
+          <p class="text-sm text-gray-500">{{$da->cuisine_type}} • {{$da->city}}</p>
           <div class="flex justify-between items-center mt-4">
-            <span class="text-orange-500 font-semibold">⭐ 4.7</span>
-            <button class="bg-red-500 text-white px-4 py-2 rounded-lg text-sm hover:bg-red-600">Remove</button>
-          </div>
+          <a href="./details/{{$da->id}}" class="bg-orange-500 text-white px-4 py-2 rounded-lg text-sm">
+            View Details
+          </a>
+        </div>
         </div>
       </div>
     @endforeach
+@else
+    
       <p class="text-center text-gray-500 col-span-full mt-20">You haven't added any favorite restaurants yet.</p>
-
+@endif
     </div>
   </section>
-
+  <div class="mt-40"></div>
   <!-- Footer -->
   <footer class="bg-gray-900 text-gray-400">
     <div class="max-w-7xl mx-auto px-6 py-10 grid md:grid-cols-4 gap-8">

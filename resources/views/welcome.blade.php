@@ -22,11 +22,14 @@
         <a href="/Favorites" class="hover:text-orange-500">My Favorites</a>
         <a href="#" class="hover:text-orange-500">Contact</a>
       </nav>
+      
       <div class="flex gap-3">
         <a href="./login" class="text-sm font-medium">Sign in</a>
         <a href="./register" class="bg-orange-500 text-white px-4 py-2 rounded-lg text-sm hover:bg-orange-600">Register</a>
       </div>
+     
     </div>
+    
   </header>
 
   <!-- Hero -->

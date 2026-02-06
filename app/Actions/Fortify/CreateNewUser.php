@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 use Laravel\Jetstream\Jetstream;
+use App\Models\Role;
 
 class CreateNewUser implements CreatesNewUsers
 {
@@ -21,6 +22,7 @@ class CreateNewUser implements CreatesNewUsers
      */
     public function create(array $input): User
     {
+        
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -29,14 +31,24 @@ class CreateNewUser implements CreatesNewUsers
         ])->validate();
 
         return DB::transaction(function () use ($input) {
-            return tap(User::create([
-                'name' => $input['name'],
-                'email' => $input['email'],
-                'password' => Hash::make($input['password']),
-            ]), function (User $user) {
-                $this->createTeam($user);
-            });
+
+        $user = User::create([
+            'name' => $input['name'],
+            'email' => $input['email'],
+            'password' => Hash::make($input['password']),
+        ]);
+
+        $this->createTeam($user);
+
+        Role::create([
+            'role' => $input['role'],
+            'users_id' => $user->id,
+        ]);
+
+        return $user;
         });
+
+        
     }
 
     /**
