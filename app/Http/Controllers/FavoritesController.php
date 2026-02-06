@@ -18,13 +18,6 @@ class FavoritesController extends Controller
                     ->where('f.users_id', Auth::id())
                     ->get();
 
-        // DB::table('menuses as m')
-        //                         ->join('menuplats as mp', 'mp.menus_id', '=', 'm.id')
-        //                         ->join('plats as p', 'p.id', '=', 'mp.plats_id')
-        //                         ->where('m.restaurants_id', $id)
-        //                         ->select('m.*', 'p.*')
-        //                         ->get();
-
         return View('Favorites.index', compact('data'));
     }
 

@@ -1,7 +1,7 @@
 <?php 
 
 use App\Http\Controllers\RestaurantController;
-
+use Illuminate\Support\Facades\Auth;
 
   $Restaurant = new RestaurantController;
 
